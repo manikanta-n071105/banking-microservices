@@ -20,12 +20,12 @@ public class AuthService {
 
     public String register(RegisterRequest request) {
 
+        System.out.println("REGISTER CALLED: " + request.getUsername());
+
         User user = User.builder()
                 .username(request.getUsername())
-                .password(passwordEncoder.encode(
-                        request.getPassword()))
-                .role(Role.valueOf(
-                        request.getRole().toUpperCase()))
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.valueOf(request.getRole().toUpperCase()))
                 .build();
 
         repository.save(user);
