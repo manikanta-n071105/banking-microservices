@@ -1,7 +1,9 @@
-FROM eclipse-temurin:21-jdk
+FROM maven:3.9.9-eclipse-temurin-21
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+COPY . .
 
-ENTRYPOINT ["java","-jar","app.jar"]
+RUN mvn clean package -DskipTests
+
+ENTRYPOINT ["java","-jar","target/service-registry-0.0.1-SNAPSHOT.jar"]
