@@ -11,6 +11,7 @@ import com.bank.accountservice.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -96,5 +97,9 @@ public class AccountService {
         );
 
         return saved;
+    }
+
+    public List<Account> getAllAccounts() {
+        return repository.findAll();
     }
 }

@@ -23,6 +23,11 @@ public class AccountController {
         return service.createAccount(request);
     }
 
+    @GetMapping
+    public List<Account> getAllAccounts(){
+        return service.getAllAccounts();
+    }
+
     @GetMapping("/{id}")
     public AccountResponse getAccount(
             @PathVariable Long id) {
